@@ -14,7 +14,7 @@ interface DiscountPromotionToProductInterface
      *
      * @return int|null
      */
-    public function findProductAbstractIdBySku(string $sku): ?int;
+    public function findProductAbstractIdBySku($sku): ?int;
 
     /**
      * @param array<string> $productAbstractSkus
@@ -28,5 +28,5 @@ interface DiscountPromotionToProductInterface
      *
      * @return bool
      */
-    public function hasProductAbstract(string $sku): bool;
+    public function hasProductAbstract($sku): bool;
 }

@@ -9,9 +9,7 @@ namespace Spryker\Zed\DiscountPromotion\Business\Cart;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
 use Generated\Shared\Transfer\CartPreCheckResponseTransfer;
-use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\MessageTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 
 class CartValidator implements CartValidatorInterface
 {
@@ -53,12 +51,8 @@ class CartValidator implements CartValidatorInterface
         $promotionItemTransfers = $this->getItemsWithDiscountPromotion($cartChangeTransfer);
         $groupedByIdAvailablePromotionItemTransfer = $this->groupAvailableQuotePromotionItemsById($cartChangeTransfer);
 
-        $quoteTransfer = $cartChangeTransfer->getQuote();
         foreach ($promotionItemTransfers as $promotionItemTransfer) {
-            if (
-                !empty($groupedByIdAvailablePromotionItemTransfer[$promotionItemTransfer->getIdDiscountPromotion()])
-                || $this->isPromotionItemAlreadyInQuote($promotionItemTransfer, $quoteTransfer)
-            ) {
+            if (!empty($groupedByIdAvailablePromotionItemTransfer[$promotionItemTransfer->getIdDiscountPromotion()])) {
                 continue;
             }
 
@@ -104,25 +98,5 @@ class CartValidator implements CartValidatorInterface
         }
 
         return $groupedByIdAvailablePromotionItemTransfers;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $promotionItemTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    protected function isPromotionItemAlreadyInQuote(ItemTransfer $promotionItemTransfer, QuoteTransfer $quoteTransfer): bool
-    {
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
-            if (
-                $promotionItemTransfer->getSku() === $itemTransfer->getSku()
-                && $promotionItemTransfer->getIdDiscountPromotion() === $itemTransfer->getIdDiscountPromotion()
-            ) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
