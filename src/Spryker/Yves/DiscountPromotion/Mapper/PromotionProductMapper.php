@@ -30,10 +30,6 @@ class PromotionProductMapper implements PromotionProductMapperInterface
      */
     protected $storageProductMapperPlugin;
 
-    /**
-     * @param \Spryker\Yves\DiscountPromotion\Dependency\Client\DiscountPromotionToProductInterface $productClient
-     * @param \Spryker\Yves\DiscountPromotion\Dependency\StorageProductMapperPluginInterface $storageProductMapperPlugin
-     */
     public function __construct(
         DiscountPromotionToProductInterface $productClient,
         StorageProductMapperPluginInterface $storageProductMapperPlugin

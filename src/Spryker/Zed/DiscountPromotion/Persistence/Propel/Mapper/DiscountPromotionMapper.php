@@ -27,20 +27,11 @@ class DiscountPromotionMapper
      */
     protected $discountPromotionFieldChecker;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Persistence\Checker\DiscountPromotionFieldCheckerInterface $discountPromotionFieldChecker
-     */
     public function __construct(DiscountPromotionFieldCheckerInterface $discountPromotionFieldChecker)
     {
         $this->discountPromotionFieldChecker = $discountPromotionFieldChecker;
     }
 
-    /**
-     * @param \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotion $discountPromotionEntity
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function mapDiscountPromotionEntityToTransfer(
         SpyDiscountPromotion $discountPromotionEntity,
         DiscountPromotionTransfer $discountPromotionTransfer
@@ -82,12 +73,6 @@ class DiscountPromotionMapper
         return $discountPromotionCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotion $discountPromotionEntity
-     *
-     * @return \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotion
-     */
     public function mapDiscountPromotionTransferToEntity(
         DiscountPromotionTransfer $discountPromotionTransfer,
         SpyDiscountPromotion $discountPromotionEntity

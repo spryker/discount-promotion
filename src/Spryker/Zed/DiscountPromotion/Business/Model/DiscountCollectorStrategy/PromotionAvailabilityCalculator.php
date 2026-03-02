@@ -17,22 +17,12 @@ class PromotionAvailabilityCalculator implements PromotionAvailabilityCalculator
      */
     protected $availabilityFacade;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToAvailabilityInterface $availabilityFacade
-     */
     public function __construct(
         DiscountPromotionToAvailabilityInterface $availabilityFacade
     ) {
         $this->availabilityFacade = $availabilityFacade;
     }
 
-    /**
-     * @param string $sku
-     * @param int $maxQuantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return int
-     */
     public function getMaximumQuantityBasedOnAvailability(string $sku, int $maxQuantity, StoreTransfer $storeTransfer): int
     {
         $productAbstractAvailabilityTransfer = $this->availabilityFacade

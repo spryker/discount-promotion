@@ -21,17 +21,11 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class DiscountPromotionPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotionQuery
-     */
     public function createDiscountPromotionQuery(): SpyDiscountPromotionQuery
     {
         return SpyDiscountPromotionQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Persistence\Propel\Mapper\DiscountPromotionMapper
-     */
     public function createDiscountPromotionMapper(): DiscountPromotionMapper
     {
         return new DiscountPromotionMapper(
@@ -39,9 +33,6 @@ class DiscountPromotionPersistenceFactory extends AbstractPersistenceFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Persistence\Checker\DiscountPromotionFieldCheckerInterface
-     */
     public function createDiscountPromotionFieldChecker(): DiscountPromotionFieldCheckerInterface
     {
         return new DiscountPromotionFieldChecker();

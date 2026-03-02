@@ -29,9 +29,6 @@ class FindDiscountPromotionByIdDiscountPromotionTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFindDiscountPromotionByIdDiscountPromotionShouldReturnPersistedPromotion(): void
     {
         // Arrange

@@ -20,22 +20,11 @@ class DiscountPromotionQuoteExpander implements DiscountPromotionQuoteExpanderIn
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToProductInterface $productFacade
-     */
     public function __construct(DiscountPromotionToProductInterface $productFacade)
     {
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param int $promotionMaximumQuantity
-     *
-     * @return void
-     */
     public function expandWithPromotionItem(
         DiscountTransfer $discountTransfer,
         QuoteTransfer $quoteTransfer,
@@ -51,13 +40,6 @@ class DiscountPromotionQuoteExpander implements DiscountPromotionQuoteExpanderIn
         $quoteTransfer->addPromotionItem($promotionItemTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     * @param int $promotionProductMaximumQuantity
-     *
-     * @return \Generated\Shared\Transfer\PromotionItemTransfer
-     */
     protected function createPromotionItemTransfer(
         DiscountPromotionTransfer $discountPromotionTransfer,
         DiscountTransfer $discountTransfer,

@@ -34,9 +34,6 @@ class FindDiscountPromotionByUuidTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFindDiscountPromotionByUuidShouldReturnPersistedPromotion(): void
     {
         // Arrange
@@ -52,9 +49,6 @@ class FindDiscountPromotionByUuidTest extends Unit
         $this->assertNotNull($discountPromotionTransferRead);
     }
 
-    /**
-     * @return void
-     */
     public function testFindDiscountPromotionByUuidShouldReturnNullWhenDiscountPromotionWithGivenUuidDoesNotExist(): void
     {
         // Arrange

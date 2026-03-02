@@ -24,10 +24,6 @@ class DiscountPromotionDiscountPostUpdater implements DiscountPromotionDiscountP
      */
     protected DiscountPromotionUpdaterInterface $discountPromotionUpdater;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountPromotionCreatorInterface $discountPromotionCreator
-     * @param \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionUpdater\DiscountPromotionUpdaterInterface $discountPromotionUpdater
-     */
     public function __construct(
         DiscountPromotionCreatorInterface $discountPromotionCreator,
         DiscountPromotionUpdaterInterface $discountPromotionUpdater
@@ -36,11 +32,6 @@ class DiscountPromotionDiscountPostUpdater implements DiscountPromotionDiscountP
         $this->discountPromotionUpdater = $discountPromotionUpdater;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountConfiguratorTransfer $discountConfiguratorTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountConfiguratorTransfer
-     */
     public function postUpdate(DiscountConfiguratorTransfer $discountConfiguratorTransfer): DiscountConfiguratorTransfer
     {
         $discountCalculatorTransfer = $discountConfiguratorTransfer->getDiscountCalculatorOrFail();
@@ -62,11 +53,6 @@ class DiscountPromotionDiscountPostUpdater implements DiscountPromotionDiscountP
         return $discountConfiguratorTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     protected function saveDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer
     {
         if (!$discountPromotionTransfer->getIdDiscountPromotion()) {

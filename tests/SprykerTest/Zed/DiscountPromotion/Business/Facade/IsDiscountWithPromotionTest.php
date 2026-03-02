@@ -29,9 +29,6 @@ class IsDiscountWithPromotionTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testIsDiscountWithPromotionShouldReturnTrueIfDiscountHavePromo(): void
     {
         // Arrange
@@ -46,9 +43,6 @@ class IsDiscountWithPromotionTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testIsDiscountWithPromotionShouldReturnFalseIfDiscountDoesNotHavePromo(): void
     {
         // Arrange

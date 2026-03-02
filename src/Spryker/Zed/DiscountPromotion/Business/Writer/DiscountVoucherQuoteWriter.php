@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class DiscountVoucherQuoteWriter implements DiscountVoucherQuoteWriterInterface
 {
- /**
-  * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-  * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-  *
-  * @return void
-  */
     public function addDiscountVoucherCode(
         DiscountTransfer $discountTransfer,
         QuoteTransfer $quoteTransfer
@@ -32,12 +26,6 @@ class DiscountVoucherQuoteWriter implements DiscountVoucherQuoteWriterInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function removeDiscountVoucherCode(DiscountTransfer $discountTransfer, QuoteTransfer $quoteTransfer): void
     {
         if (!$discountTransfer->getVoucherCode()) {

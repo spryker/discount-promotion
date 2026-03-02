@@ -21,9 +21,6 @@ class DiscountPromotionFormExpander implements DiscountPromotionFormExpanderInte
      */
     protected DiscountPromotionToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(DiscountPromotionToLocaleFacadeInterface $localeFacade)
     {
         $this->localeFacade = $localeFacade;

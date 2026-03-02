@@ -31,9 +31,6 @@ class ExpandDiscountConfigurationWithPromotionTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandDiscountConfigurationWithPromotionShouldPopulateConfigurationObjectWithPromotion(): void
     {
         // Arrange

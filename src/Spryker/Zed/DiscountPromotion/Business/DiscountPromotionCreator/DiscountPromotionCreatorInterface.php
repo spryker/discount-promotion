@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\DiscountPromotionTransfer;
 
 interface DiscountPromotionCreatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function create(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer;
 }

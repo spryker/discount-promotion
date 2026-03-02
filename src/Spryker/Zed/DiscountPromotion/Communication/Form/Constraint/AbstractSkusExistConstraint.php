@@ -42,27 +42,16 @@ class AbstractSkusExistConstraint extends Constraint
      */
     protected $translatorFacade;
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToProductInterface
-     */
     public function getProductFacade(): DiscountPromotionToProductInterface
     {
         return $this->productFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }
 
-    /**
-     * @param string $skus
-     *
-     * @return string
-     */
     public function getMessage(string $skus): string
     {
         return $this->translatorFacade->trans(

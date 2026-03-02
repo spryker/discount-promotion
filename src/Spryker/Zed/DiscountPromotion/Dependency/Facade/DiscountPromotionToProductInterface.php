@@ -9,11 +9,6 @@ namespace Spryker\Zed\DiscountPromotion\Dependency\Facade;
 
 interface DiscountPromotionToProductInterface
 {
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductAbstractIdBySku(string $sku): ?int;
 
     /**
@@ -23,10 +18,5 @@ interface DiscountPromotionToProductInterface
      */
     public function getRawProductAbstractTransfersByAbstractSkus(array $productAbstractSkus): array;
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductAbstract(string $sku): bool;
 }

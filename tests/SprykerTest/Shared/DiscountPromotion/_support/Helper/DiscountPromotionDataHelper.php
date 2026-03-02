@@ -20,11 +20,6 @@ class DiscountPromotionDataHelper extends Module
     use DataCleanupHelperTrait;
     use LocatorHelperTrait;
 
-    /**
-     * @param array $override
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function haveDiscountPromotion(array $override = []): DiscountPromotionTransfer
     {
         $discountPromotionTransfer = (new DiscountPromotionBuilder($override))->build();
@@ -39,9 +34,6 @@ class DiscountPromotionDataHelper extends Module
         return $discountPromotionTransfer;
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionFacadeInterface
-     */
     private function getDiscountPromotionFacade(): DiscountPromotionFacadeInterface
     {
         return $this->getLocator()
@@ -49,9 +41,6 @@ class DiscountPromotionDataHelper extends Module
             ->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionQueryContainerInterface
-     */
     private function getDiscountPromotionQuery(): DiscountPromotionQueryContainerInterface
     {
         return $this->getLocator()
@@ -59,11 +48,6 @@ class DiscountPromotionDataHelper extends Module
             ->queryContainer();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return void
-     */
     private function cleanupDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): void
     {
         $cleanupModule = $this->getDataCleanupHelper();

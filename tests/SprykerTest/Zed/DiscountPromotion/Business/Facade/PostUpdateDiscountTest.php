@@ -38,9 +38,6 @@ class PostUpdateDiscountTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldCreatePromotionDiscountWhenIdDiscountPromotionIsNotSet(): void
     {
         // Arrange
@@ -62,9 +59,6 @@ class PostUpdateDiscountTest extends Unit
         $this->assertNotNull($discountConfiguratorTransfer->getDiscountCalculator()->getDiscountPromotion()->getIdDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldSetAnEmptyPromotionDiscountWhenPromotionDiscountIsNotProvided(): void
     {
         // Arrange
@@ -78,9 +72,6 @@ class PostUpdateDiscountTest extends Unit
         $this->assertNotNull($discountConfiguratorTransfer->getDiscountCalculator()->getDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldUpdateDiscountWhenValidIdDiscountPromotionIsProvided(): void
     {
         // Arrange
@@ -105,9 +96,6 @@ class PostUpdateDiscountTest extends Unit
         $this->assertSame(2, $discountPromotionTransferUpdated->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldReturnAnEmptyDiscountPromotionWhenIdDiscountPromotionIsNotValid(): void
     {
         // Arrange
@@ -128,9 +116,6 @@ class PostUpdateDiscountTest extends Unit
         $this->assertNull($discountConfiguratorTransfer->getDiscountCalculator()->getDiscountPromotion()->getIdDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldSetFkDiscountFromDiscountGeneralToDiscountPromotion(): void
     {
         // Arrange
@@ -156,9 +141,6 @@ class PostUpdateDiscountTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldThrowAnExceptionWhenDiscountGeneralIsNotSet(): void
     {
         // Arrange
@@ -172,9 +154,6 @@ class PostUpdateDiscountTest extends Unit
         $this->tester->getFacade()->postUpdateDiscount($discountConfiguratorTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldThrowAnExceptionWhenIdDiscountIsNotSet(): void
     {
         // Arrange
@@ -189,9 +168,6 @@ class PostUpdateDiscountTest extends Unit
         $this->tester->getFacade()->postUpdateDiscount($discountConfiguratorTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testPostUpdateDiscountShouldThrowAnExceptionWhenDiscountCalculatorIsNotSet(): void
     {
         // Arrange

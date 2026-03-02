@@ -48,11 +48,6 @@ class DiscountViewBlockController extends AbstractController
         ];
     }
 
-    /**
-     * @param int $idDiscount
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer
-     */
     protected function createDiscountPromotionCriteriaTransferWithIdDiscountCondition(int $idDiscount): DiscountPromotionCriteriaTransfer
     {
         $discountPromotionConditionsTransfer = (new DiscountPromotionConditionsTransfer())

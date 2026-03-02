@@ -13,13 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface DiscountPromotionCollectorStrategyInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function isApplicable(
         DiscountPromotionTransfer $discountPromotionTransfer,
         DiscountTransfer $discountTransfer,

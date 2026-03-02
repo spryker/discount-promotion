@@ -30,11 +30,6 @@ class DiscountPromotionRepository extends AbstractRepository implements Discount
             ->isAbstractSkusFieldExists();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionCollectionTransfer
-     */
     public function getDiscountPromotionCollection(DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer): DiscountPromotionCollectionTransfer
     {
         $discountPromotionQuery = $this->getFactory()->createDiscountPromotionQuery();
@@ -49,11 +44,6 @@ class DiscountPromotionRepository extends AbstractRepository implements Discount
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return bool
-     */
     public function hasDiscountPromotion(DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer): bool
     {
         $discountPromotionQuery = $this->getFactory()->createDiscountPromotionQuery();
@@ -63,11 +53,6 @@ class DiscountPromotionRepository extends AbstractRepository implements Discount
         return $discountPromotionQuery->exists();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer|null
-     */
     public function findDiscountPromotionByCriteria(
         DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
     ): ?DiscountPromotionTransfer {
@@ -77,12 +62,6 @@ class DiscountPromotionRepository extends AbstractRepository implements Discount
             ->current();
     }
 
-    /**
-     * @param \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotionQuery $discountPromotionQuery
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotionQuery
-     */
     protected function applyFilters(
         SpyDiscountPromotionQuery $discountPromotionQuery,
         DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer

@@ -20,19 +20,11 @@ class DiscountPromotionUpdater implements DiscountPromotionUpdaterInterface
      */
     protected $discountPromotionEntityManager;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionEntityManagerInterface $discountPromotionEntityManager
-     */
     public function __construct(DiscountPromotionEntityManagerInterface $discountPromotionEntityManager)
     {
         $this->discountPromotionEntityManager = $discountPromotionEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function update(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer
     {
         $discountPromotionTransfer->requireFkDiscount();

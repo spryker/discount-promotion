@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class DiscountPromotionEntityManager extends AbstractEntityManager implements DiscountPromotionEntityManagerInterface
 {
-    /**
-     * @param int $idDiscount
-     *
-     * @return void
-     */
     public function removePromotionByIdDiscount(int $idDiscount): void
     {
         $this->getFactory()
@@ -29,11 +24,6 @@ class DiscountPromotionEntityManager extends AbstractEntityManager implements Di
             ->delete();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function createDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer
     {
         $mapper = $this->getFactory()
@@ -50,11 +40,6 @@ class DiscountPromotionEntityManager extends AbstractEntityManager implements Di
         return $mapper->mapDiscountPromotionEntityToTransfer($discountPromotionEntity, new DiscountPromotionTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function updateDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer
     {
         $discountPromotionEntity = $this->getFactory()
@@ -79,11 +64,6 @@ class DiscountPromotionEntityManager extends AbstractEntityManager implements Di
         return $mapper->mapDiscountPromotionEntityToTransfer($discountPromotionEntity, new DiscountPromotionTransfer());
     }
 
-    /**
-     * @param \Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotion $discountPromotionEntity
-     *
-     * @return void
-     */
     protected function removeCollectorQueryString(SpyDiscountPromotion $discountPromotionEntity): void
     {
         /** @var \Orm\Zed\Discount\Persistence\SpyDiscount|null $discountEntity */

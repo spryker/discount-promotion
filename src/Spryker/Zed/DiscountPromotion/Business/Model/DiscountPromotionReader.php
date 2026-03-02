@@ -21,9 +21,6 @@ class DiscountPromotionReader implements DiscountPromotionReaderInterface
      */
     protected $discountPromotionRepository;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionRepositoryInterface $discountPromotionRepository
-     */
     public function __construct(DiscountPromotionRepositoryInterface $discountPromotionRepository)
     {
         $this->discountPromotionRepository = $discountPromotionRepository;
@@ -117,11 +114,6 @@ class DiscountPromotionReader implements DiscountPromotionReaderInterface
         return $this->discountPromotionRepository->findDiscountPromotionByCriteria($discountPromotionCriteriaTransfer);
     }
 
-    /**
-     * @param int $idDiscount
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer
-     */
     protected function createDiscountPromotionCriteriaTransferWithIdDiscountCondition(int $idDiscount): DiscountPromotionCriteriaTransfer
     {
         $discountPromotionConditionsTransfer = (new DiscountPromotionConditionsTransfer())

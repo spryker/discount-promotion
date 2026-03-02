@@ -37,11 +37,6 @@ class CartValidator implements CartValidatorInterface
      */
     protected const CART_CHANGE_OPERATION_ADD = 'add';
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function validateCartDiscountPromotions(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartPreCheckResponseTransfer = (new CartPreCheckResponseTransfer())->setIsSuccess(true);
@@ -106,12 +101,6 @@ class CartValidator implements CartValidatorInterface
         return $groupedByIdAvailablePromotionItemTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $promotionItemTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isPromotionItemAlreadyInQuote(ItemTransfer $promotionItemTransfer, QuoteTransfer $quoteTransfer): bool
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {

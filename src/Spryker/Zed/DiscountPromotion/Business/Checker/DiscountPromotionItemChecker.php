@@ -12,13 +12,6 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 class DiscountPromotionItemChecker implements DiscountPromotionItemCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param string $abstractSku
-     *
-     * @return bool
-     */
     public function isItemRelatedToDiscountPromotion(
         ItemTransfer $itemTransfer,
         DiscountPromotionTransfer $discountPromotionTransfer,
@@ -28,12 +21,6 @@ class DiscountPromotionItemChecker implements DiscountPromotionItemCheckerInterf
             && $itemTransfer->getAbstractSku() !== $abstractSku;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     public function isItemPromotional(
         DiscountPromotionTransfer $discountPromotionTransfer,
         ItemTransfer $itemTransfer

@@ -45,9 +45,6 @@ class CollectTest extends Unit
      */
     protected QuoteTransfer $quoteTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -56,9 +53,6 @@ class CollectTest extends Unit
         $this->discountTransfer = (new DiscountBuilder([]))->build();
     }
 
-    /**
-     * @return void
-     */
     public function testCollectWhenPromotionItemIsNotInCartShouldAddItToQuote(): void
     {
         // Arrange
@@ -73,9 +67,6 @@ class CollectTest extends Unit
         $this->assertCount(0, $collectedDiscounts);
     }
 
-    /**
-     * @return void
-     */
     public function testCollectWhenPromotionItemIsAlreadyInCartShouldCollectIt(): void
     {
         // Arrange
@@ -105,9 +96,6 @@ class CollectTest extends Unit
         $this->assertSame($quantity, $collectedDiscounts[0]->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testCollectWhenItemIsNotAvailableShouldSkipPromotion(): void
     {
         // Arrange
@@ -122,9 +110,6 @@ class CollectTest extends Unit
         $this->assertCount(0, $collectedDiscounts);
     }
 
-    /**
-     * @return void
-     */
     public function testCollectAdjustsQuantityBasedOnAvailability(): void
     {
         // Arrange
@@ -153,9 +138,6 @@ class CollectTest extends Unit
         $this->assertSame($promotionItemQuantity, $promotionItemTransfer->getMaxQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testDiscountPromotionCollectWhenNonNumericProductSkuUsed(): void
     {
         // Arrange
@@ -170,9 +152,6 @@ class CollectTest extends Unit
         $this->assertCount(0, $collectedDiscounts);
     }
 
-    /**
-     * @return void
-     */
     public function testDiscountPromotionCollectShouldReturnPromotionItemsWithProperQuantity(): void
     {
         // Arrange
@@ -190,9 +169,6 @@ class CollectTest extends Unit
         $this->assertSame(1, $promotionItemTransfers->offsetGet(0)->getMaxQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testDiscountPromotionCollectShouldReturnPromotionItemsWithProperQuantityWhenItemIsAddedToTheQuote(): void
     {
         if (!$this->tester->isAbstractSkusFieldExists()) {
@@ -224,9 +200,6 @@ class CollectTest extends Unit
         $this->assertSame(2, $discountableItemTransfers[0]->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testDiscountPromotionCollectShouldReturnPromotionItemsWithProperQuantityWhenItemsAreNotAddedToTheQuote(): void
     {
         if (!$this->tester->isAbstractSkusFieldExists()) {
@@ -250,9 +223,6 @@ class CollectTest extends Unit
         $this->assertSame(3, $promotionItemTransfers->offsetGet(1)->getMaxQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testDiscountPromotionCollectShouldFilterOutPromotionItemFromCollectionWhenItemInQuoteRaiseMaxQuantity(): void
     {
         if (!$this->tester->isAbstractSkusFieldExists()) {

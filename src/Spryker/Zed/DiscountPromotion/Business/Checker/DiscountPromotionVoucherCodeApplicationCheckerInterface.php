@@ -12,11 +12,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface DiscountPromotionVoucherCodeApplicationCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $voucherCode
-     *
-     * @return \Generated\Shared\Transfer\DiscountVoucherCheckResponseTransfer
-     */
     public function check(QuoteTransfer $quoteTransfer, string $voucherCode): DiscountVoucherCheckResponseTransfer;
 }

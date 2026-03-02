@@ -41,9 +41,6 @@ class GetDiscountPromotionsTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnPersistedPromotionByIdDiscountPromotion(): void
     {
         // Arrange
@@ -69,9 +66,6 @@ class GetDiscountPromotionsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnPersistedPromotionByUuid(): void
     {
         // Arrange
@@ -97,9 +91,6 @@ class GetDiscountPromotionsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnNothingByUnknownUuid(): void
     {
         // Arrange
@@ -121,9 +112,6 @@ class GetDiscountPromotionsTest extends Unit
         $this->assertCount(0, $discountPromotions);
     }
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnNothingByUnknownIdDiscount(): void
     {
         // Arrange
@@ -145,9 +133,6 @@ class GetDiscountPromotionsTest extends Unit
         $this->assertCount(0, $discountPromotions);
     }
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnNothingByUnknownIdPromotionDiscount(): void
     {
         // Arrange
@@ -169,9 +154,6 @@ class GetDiscountPromotionsTest extends Unit
         $this->assertCount(0, $discountPromotions);
     }
 
-    /**
-     * @return void
-     */
     public function testGetDiscountPromotionCollectionShouldReturnPersistedPromotionByIdDiscount(): void
     {
         // Arrange
@@ -197,9 +179,6 @@ class GetDiscountPromotionsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFindDiscountPromotionCollectionShouldReturnPersistedPromotion(): void
     {
         // Arrange

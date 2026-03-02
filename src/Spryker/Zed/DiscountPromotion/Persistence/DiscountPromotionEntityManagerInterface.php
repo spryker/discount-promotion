@@ -11,24 +11,9 @@ use Generated\Shared\Transfer\DiscountPromotionTransfer;
 
 interface DiscountPromotionEntityManagerInterface
 {
-    /**
-     * @param int $idDiscount
-     *
-     * @return void
-     */
     public function removePromotionByIdDiscount(int $idDiscount): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function createDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     public function updateDiscountPromotion(DiscountPromotionTransfer $discountPromotionTransfer): DiscountPromotionTransfer;
 }

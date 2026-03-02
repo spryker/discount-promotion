@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\CartChangeTransfer;
 
 class DiscountPromotionItemFilter implements DiscountPromotionItemFilterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function filterDiscountPromotionItems(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         $filteredItemTransfers = [];

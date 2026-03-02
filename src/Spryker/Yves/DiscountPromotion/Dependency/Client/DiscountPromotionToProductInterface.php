@@ -9,10 +9,5 @@ namespace Spryker\Yves\DiscountPromotion\Dependency\Client;
 
 interface DiscountPromotionToProductInterface
 {
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return array
-     */
     public function getProductAbstractFromStorageByIdForCurrentLocale(int $idProductAbstract): array;
 }

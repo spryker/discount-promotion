@@ -29,9 +29,6 @@ class UpdatePromotionDiscountTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testUpdateDiscountPromotionShouldReturnTransferEvenIfDiscountDoesNotExists(): void
     {
         // Arrange
@@ -45,9 +42,6 @@ class UpdatePromotionDiscountTest extends Unit
         $this->assertNull($discountPromotionTransfer->getIdDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateDiscountPromotionShouldUpdateExistingPromotion(): void
     {
         if ($this->tester->isAbstractSkusFieldExists()) {
@@ -76,9 +70,6 @@ class UpdatePromotionDiscountTest extends Unit
         $this->assertEmpty($discountPromotionTransferUpdated->getAbstractSkus());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateDiscountPromotionShouldUpdateExistingPromotionWithMultipleAbstractSkus(): void
     {
         if (!$this->tester->isAbstractSkusFieldExists()) {

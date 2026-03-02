@@ -25,10 +25,6 @@ class SingleSkuDiscountPromotionCollectorStrategy implements DiscountPromotionCo
      */
     protected $discountPromotionRepository;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountableItemCreatorInterface $discountableItemCreator
-     * @param \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionRepositoryInterface $discountPromotionRepository
-     */
     public function __construct(
         DiscountableItemCreatorInterface $discountableItemCreator,
         DiscountPromotionRepositoryInterface $discountPromotionRepository
@@ -37,13 +33,6 @@ class SingleSkuDiscountPromotionCollectorStrategy implements DiscountPromotionCo
         $this->discountPromotionRepository = $discountPromotionRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function isApplicable(
         DiscountPromotionTransfer $discountPromotionTransfer,
         DiscountTransfer $discountTransfer,

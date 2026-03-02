@@ -53,9 +53,6 @@ class ValidateCartDiscountPromotionsTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateCartDiscountPromotionsWithExistingPromotion(): void
     {
         // Arrange
@@ -80,9 +77,6 @@ class ValidateCartDiscountPromotionsTest extends Unit
         $this->assertTrue($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateCartDiscountPromotionsWithNotExistingPromotion(): void
     {
         // Arrange
@@ -102,9 +96,6 @@ class ValidateCartDiscountPromotionsTest extends Unit
         $this->assertFalse($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateCartDiscountPromotionsWithInvalidOperation(): void
     {
         // Arrange
@@ -124,9 +115,6 @@ class ValidateCartDiscountPromotionsTest extends Unit
         $this->assertTrue($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateCartDiscountPromotionsWithPromotionItemInQuote(): void
     {
         // Arrange

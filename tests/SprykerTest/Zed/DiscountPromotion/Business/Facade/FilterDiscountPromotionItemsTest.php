@@ -35,9 +35,6 @@ class FilterDiscountPromotionItemsTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFilterDiscountPromotionItemsRemovesPromotionProducts(): void
     {
         // Arrange
@@ -53,9 +50,6 @@ class FilterDiscountPromotionItemsTest extends Unit
         $this->assertNull($cartChangeTransfer->getItems()->offsetGet(0)->getIdDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testFilterDiscountPromotionItemsUpdatesRemovesAllItemsFromCartChange(): void
     {
         // Arrange

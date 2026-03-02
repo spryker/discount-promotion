@@ -20,21 +20,11 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
  */
 class BaseDiscountPromotionSaverPlugin extends AbstractPlugin
 {
-    /**
-     * @param \Generated\Shared\Transfer\DiscountConfiguratorTransfer $discountConfiguratorTransfer
-     *
-     * @return bool
-     */
     protected function isDiscountWithPromotion(DiscountConfiguratorTransfer $discountConfiguratorTransfer): bool
     {
         return $discountConfiguratorTransfer->getDiscountCalculator()->getCollectorStrategyType() === DiscountPromotionConfig::DISCOUNT_COLLECTOR_STRATEGY;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountConfiguratorTransfer $discountConfiguratorTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer
-     */
     protected function getDiscountPromotionTransfer(DiscountConfiguratorTransfer $discountConfiguratorTransfer): DiscountPromotionTransfer
     {
         $discountGeneralTransfer = $discountConfiguratorTransfer->getDiscountGeneral();

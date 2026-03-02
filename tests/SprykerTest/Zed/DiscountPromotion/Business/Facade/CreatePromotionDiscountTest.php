@@ -30,9 +30,6 @@ class CreatePromotionDiscountTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCreatePromotionDiscountShouldHavePersistedPromotionDiscount(): void
     {
         // Act
@@ -48,9 +45,6 @@ class CreatePromotionDiscountTest extends Unit
         $this->assertSame($discountPromotionTransferSaved->getIdDiscountPromotion(), $discountPromotionTransfer->getIdDiscountPromotion());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateDiscountPromotionShouldCreatePromotion(): void
     {
         if ($this->tester->isAbstractSkusFieldExists()) {
@@ -72,9 +66,6 @@ class CreatePromotionDiscountTest extends Unit
         $this->assertEmpty($discountPromotionTransferCreated->getAbstractSkus());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateDiscountPromotionShouldCreatePromotionWithMultipleAbstractSkus(): void
     {
         if (!$this->tester->isAbstractSkusFieldExists()) {

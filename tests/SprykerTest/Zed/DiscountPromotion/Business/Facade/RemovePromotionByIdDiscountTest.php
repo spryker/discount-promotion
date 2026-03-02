@@ -29,9 +29,6 @@ class RemovePromotionByIdDiscountTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testDeletePromotionDiscountShouldDeleteAnyExistingPromotions(): void
     {
         // Arrange
@@ -48,9 +45,6 @@ class RemovePromotionByIdDiscountTest extends Unit
         $this->assertNull($discountPromotionTransferUpdated);
     }
 
-    /**
-     * @return void
-     */
     public function testDeletePromotionDiscountShouldNotFailIfThereWasNoExistingPromotion(): void
     {
         // Arrange

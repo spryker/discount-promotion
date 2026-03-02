@@ -47,9 +47,6 @@ class DiscountPromotionCommunicationFactory extends AbstractCommunicationFactory
         return new AbstractSkusTransformer();
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     public function createAbstractSkusExistConstraint(): Constraint
     {
         return new AbstractSkusExistConstraint([
@@ -58,33 +55,21 @@ class DiscountPromotionCommunicationFactory extends AbstractCommunicationFactory
         ]);
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Communication\Expander\DiscountPromotionFormExpanderInterface
-     */
     public function createDiscountPromotionFormExpander(): DiscountPromotionFormExpanderInterface
     {
         return new DiscountPromotionFormExpander($this->getLocaleFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToProductInterface
-     */
     public function getProductFacade(): DiscountPromotionToProductInterface
     {
         return $this->getProvidedDependency(DiscountPromotionDependencyProvider::FACADE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToTranslatorFacadeInterface
-     */
     public function getTranslatorFacade(): DiscountPromotionToTranslatorFacadeInterface
     {
         return $this->getProvidedDependency(DiscountPromotionDependencyProvider::FACADE_TRANSLATOR);
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): DiscountPromotionToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(DiscountPromotionDependencyProvider::FACADE_LOCALE);

@@ -37,12 +37,6 @@ class DiscountPromotionVoucherCodeApplicationChecker implements DiscountPromotio
      */
     protected const MESSAGE_TYPE_ERROR = 'error';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $voucherCode
-     *
-     * @return \Generated\Shared\Transfer\DiscountVoucherCheckResponseTransfer
-     */
     public function check(QuoteTransfer $quoteTransfer, string $voucherCode): DiscountVoucherCheckResponseTransfer
     {
         if (in_array($voucherCode, $quoteTransfer->getUsedNotAppliedVoucherCodes(), true)) {
@@ -58,9 +52,6 @@ class DiscountPromotionVoucherCodeApplicationChecker implements DiscountPromotio
         return $this->createErrorResponse();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\DiscountVoucherCheckResponseTransfer
-     */
     protected function createSuccessResponse(): DiscountVoucherCheckResponseTransfer
     {
         $messageTransfer = (new MessageTransfer())
@@ -71,9 +62,6 @@ class DiscountPromotionVoucherCodeApplicationChecker implements DiscountPromotio
             ->setMessage($messageTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\DiscountVoucherCheckResponseTransfer
-     */
     protected function createErrorResponse(): DiscountVoucherCheckResponseTransfer
     {
         $messageTransfer = (new MessageTransfer())

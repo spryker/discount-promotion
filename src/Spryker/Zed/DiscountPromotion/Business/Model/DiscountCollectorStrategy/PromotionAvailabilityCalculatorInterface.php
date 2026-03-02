@@ -11,12 +11,5 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface PromotionAvailabilityCalculatorInterface
 {
-    /**
-     * @param string $sku
-     * @param int $maxQuantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return int
-     */
     public function getMaximumQuantityBasedOnAvailability(string $sku, int $maxQuantity, StoreTransfer $storeTransfer): int;
 }

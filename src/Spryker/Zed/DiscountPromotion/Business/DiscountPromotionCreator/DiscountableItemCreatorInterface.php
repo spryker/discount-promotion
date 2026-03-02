@@ -14,14 +14,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface DiscountableItemCreatorInterface
 {
-    /**
-     * @param string $abstractSku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountableItemTransfer|null
-     */
     public function createDiscountableItemBySku(
         string $abstractSku,
         QuoteTransfer $quoteTransfer,

@@ -45,9 +45,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\CollectorStrategy\DiscountPromotionCollectorStrategyCompositeInterface
-     */
     public function createDiscountPromotionCollectorStrategyComposite(): DiscountPromotionCollectorStrategyCompositeInterface
     {
         return new DiscountPromotionCollectorStrategyComposite(
@@ -72,9 +69,6 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         return new DiscountPromotionReader($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Filter\DiscountPromotionItemFilterInterface
-     */
     public function createDiscountPromotionItemFilter(): DiscountPromotionItemFilterInterface
     {
         return new DiscountPromotionItemFilter();
@@ -96,33 +90,21 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(DiscountPromotionDependencyProvider::FACADE_AVAILABILITY);
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountPromotionCreatorInterface
-     */
     public function createDiscountPromotionCreator(): DiscountPromotionCreatorInterface
     {
         return new DiscountPromotionCreator($this->getEntityManager());
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionUpdater\DiscountPromotionUpdaterInterface
-     */
     public function createDiscountPromotionUpdater(): DiscountPromotionUpdaterInterface
     {
         return new DiscountPromotionUpdater($this->getEntityManager());
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Cart\CartValidatorInterface
-     */
     public function createCartValidator(): CartValidatorInterface
     {
         return new CartValidator();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountableItemCreatorInterface
-     */
     public function createDiscountableItemCreator(): DiscountableItemCreatorInterface
     {
         return new DiscountableItemCreator(
@@ -133,17 +115,11 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Checker\DiscountPromotionItemCheckerInterface
-     */
     public function createDiscountPromotionItemChecker(): DiscountPromotionItemCheckerInterface
     {
         return new DiscountPromotionItemChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Expander\DiscountPromotionQuoteExpanderInterface
-     */
     public function createDiscountPromotionQuoteExpander(): DiscountPromotionQuoteExpanderInterface
     {
         return new DiscountPromotionQuoteExpander(
@@ -151,17 +127,11 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Writer\DiscountVoucherQuoteWriterInterface
-     */
     public function createDiscountVoucherQuoteWriter(): DiscountVoucherQuoteWriterInterface
     {
         return new DiscountVoucherQuoteWriter();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\CollectorStrategy\DiscountPromotionCollectorStrategyInterface
-     */
     public function createMultipleSkusDiscountPromotionCollectorStrategy(): DiscountPromotionCollectorStrategyInterface
     {
         return new MultipleSkusDiscountPromotionCollectorStrategy(
@@ -170,9 +140,6 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\CollectorStrategy\DiscountPromotionCollectorStrategyInterface
-     */
     public function createSingleSkuDiscountPromotionCollectorStrategy(): DiscountPromotionCollectorStrategyInterface
     {
         return new SingleSkuDiscountPromotionCollectorStrategy(
@@ -181,17 +148,11 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\Checker\DiscountPromotionVoucherCodeApplicationCheckerInterface
-     */
     public function createDiscountPromotionVoucherCodeApplicationChecker(): DiscountPromotionVoucherCodeApplicationCheckerInterface
     {
         return new DiscountPromotionVoucherCodeApplicationChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\DiscountPromotion\Business\PostUpdater\DiscountPromotionDiscountPostUpdaterInterface
-     */
     public function createDiscountPromotionDiscountPostUpdater(): DiscountPromotionDiscountPostUpdaterInterface
     {
         return new DiscountPromotionDiscountPostUpdater(

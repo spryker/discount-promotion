@@ -39,12 +39,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
      */
     protected $discountVoucherQuoteWriter;
 
-    /**
-     * @param \Spryker\Zed\DiscountPromotion\Business\Model\DiscountCollectorStrategy\PromotionAvailabilityCalculatorInterface $promotionAvailabilityCalculator
-     * @param \Spryker\Zed\DiscountPromotion\Business\Checker\DiscountPromotionItemCheckerInterface $discountPromotionItemChecker
-     * @param \Spryker\Zed\DiscountPromotion\Business\Expander\DiscountPromotionQuoteExpanderInterface $discountPromotionQuoteExpander
-     * @param \Spryker\Zed\DiscountPromotion\Business\Writer\DiscountVoucherQuoteWriterInterface $discountVoucherQuoteWriter
-     */
     public function __construct(
         PromotionAvailabilityCalculatorInterface $promotionAvailabilityCalculator,
         DiscountPromotionItemCheckerInterface $discountPromotionItemChecker,
@@ -57,14 +51,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
         $this->discountVoucherQuoteWriter = $discountVoucherQuoteWriter;
     }
 
-    /**
-     * @param string $abstractSku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\DiscountTransfer $discountTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountableItemTransfer|null
-     */
     public function createDiscountableItemBySku(
         string $abstractSku,
         QuoteTransfer $quoteTransfer,
@@ -107,13 +93,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
         return $this->createPromotionDiscountableItemTransfer($promotionItemInQuote, $adjustedQuantity);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $abstractSku
-     *
-     * @return int
-     */
     protected function getPromotionItemMaximumQuantity(
         DiscountPromotionTransfer $discountPromotionTransfer,
         QuoteTransfer $quoteTransfer,
@@ -147,12 +126,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\DiscountPromotionTransfer $discountPromotionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function findPromotionItemInQuote(
         QuoteTransfer $quoteTransfer,
         DiscountPromotionTransfer $discountPromotionTransfer
@@ -166,12 +139,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $promotionItemTransfer
-     * @param int $availableMaxQuantity
-     *
-     * @return int
-     */
     protected function adjustPromotionItemQuantity(ItemTransfer $promotionItemTransfer, int $availableMaxQuantity): int
     {
         $currentQuantity = $promotionItemTransfer->getQuantity();
@@ -182,12 +149,6 @@ class DiscountableItemCreator implements DiscountableItemCreatorInterface
         return $currentQuantity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $promotionItemTransfer
-     * @param int $currentQuantity
-     *
-     * @return \Generated\Shared\Transfer\DiscountableItemTransfer
-     */
     protected function createPromotionDiscountableItemTransfer(ItemTransfer $promotionItemTransfer, int $currentQuantity): DiscountableItemTransfer
     {
         return (new DiscountableItemTransfer())

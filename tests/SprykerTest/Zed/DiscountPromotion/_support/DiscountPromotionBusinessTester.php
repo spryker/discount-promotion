@@ -52,9 +52,6 @@ class DiscountPromotionBusinessTester extends Actor
      */
     public const TEST_ABSTRACT_SKU_2 = 'sku-130';
 
-    /**
-     * @return \Spryker\Zed\Availability\Business\AvailabilityFacadeInterface
-     */
     public function getAvailabilityFacade(): AvailabilityFacadeInterface
     {
         return $this->getLocator()
@@ -62,9 +59,6 @@ class DiscountPromotionBusinessTester extends Actor
             ->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\Stock\Business\StockFacadeInterface
-     */
     public function getStockFacade(): StockFacadeInterface
     {
         return $this->getLocator()
@@ -72,12 +66,6 @@ class DiscountPromotionBusinessTester extends Actor
             ->facade();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param int $quantity
-     *
-     * @return void
-     */
     public function addStockForProduct(ProductConcreteTransfer $productConcreteTransfer, int $quantity): void
     {
         $availableStockTypes = $this->getStockFacade()
@@ -94,13 +82,6 @@ class DiscountPromotionBusinessTester extends Actor
         }
     }
 
-    /**
-     * @param array $productAbstractOverride
-     * @param array $productConcreteOverride
-     * @param int $quantity
-     *
-     * @return void
-     */
     public function haveProductWithStock(
         array $productAbstractOverride = [],
         array $productConcreteOverride = [],
@@ -113,12 +94,6 @@ class DiscountPromotionBusinessTester extends Actor
             ->updateAvailability($productConcreteTransfer->getSku());
     }
 
-    /**
-     * @param array $storeOverride
-     * @param array $quoteOverride
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function prepareQuoteWithStore(
         array $storeOverride = [],
         array $quoteOverride = []
@@ -130,9 +105,6 @@ class DiscountPromotionBusinessTester extends Actor
             ->setStore($storeTransfer);
     }
 
-    /**
-     * @return bool
-     */
     public function isAbstractSkusFieldExists(): bool
     {
         return (new DiscountPromotionRepository())->isAbstractSkusFieldExists();

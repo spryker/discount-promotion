@@ -69,9 +69,6 @@ class CheckVoucherCodeAppliedTest extends Unit
      */
     protected DiscountPromotionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckVoucherCodeAppliedShouldReturnSuccessfulResponseIfVoucherIsInUsedNotAppliedVoucherCodes(): void
     {
         // Arrange
@@ -98,9 +95,6 @@ class CheckVoucherCodeAppliedTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCheckVoucherCodeAppliedShouldReturnSuccessfulResponseIfVoucherIsInVoucherDiscounts(): void
     {
         // Arrange
@@ -128,9 +122,6 @@ class CheckVoucherCodeAppliedTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCheckVoucherCodeAppliedShouldReturnErrorResponseIfVoucherCodeIsNotInQuote(): void
     {
         // Arrange

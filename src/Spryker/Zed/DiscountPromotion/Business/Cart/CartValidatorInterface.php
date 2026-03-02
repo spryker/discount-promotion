@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CartPreCheckResponseTransfer;
 
 interface CartValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function validateCartDiscountPromotions(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer;
 }

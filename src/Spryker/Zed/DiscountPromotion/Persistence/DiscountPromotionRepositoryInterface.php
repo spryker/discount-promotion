@@ -20,25 +20,10 @@ interface DiscountPromotionRepositoryInterface
      */
     public function isAbstractSkusFieldExists(): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionCollectionTransfer
-     */
     public function getDiscountPromotionCollection(DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer): DiscountPromotionCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return bool
-     */
     public function hasDiscountPromotion(DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\DiscountPromotionTransfer|null
-     */
     public function findDiscountPromotionByCriteria(
         DiscountPromotionCriteriaTransfer $discountPromotionCriteriaTransfer
     ): ?DiscountPromotionTransfer;

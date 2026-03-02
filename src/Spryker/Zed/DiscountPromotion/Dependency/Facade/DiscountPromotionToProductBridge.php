@@ -22,21 +22,11 @@ class DiscountPromotionToProductBridge implements DiscountPromotionToProductInte
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductAbstractIdBySku(string $sku): ?int
     {
         return $this->productFacade->findProductAbstractIdBySku($sku);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductAbstract(string $sku): bool
     {
         return $this->productFacade->hasProductAbstract($sku);
