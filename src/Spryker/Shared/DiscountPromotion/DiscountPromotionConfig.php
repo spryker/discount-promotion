@@ -10,6 +10,8 @@ namespace Spryker\Shared\DiscountPromotion;
 class DiscountPromotionConfig
 {
     /**
+     * @api
+     *
      * This constant used to uniquely identify promotion discount collector strategy type
      *
      * @var string
