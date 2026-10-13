@@ -7,9 +7,10 @@
 
 namespace Spryker\Zed\DiscountPromotion\Communication;
 
+use Spryker\Shared\DiscountPromotion\DiscountPromotionConfig;
 use Spryker\Zed\DiscountPromotion\Communication\Expander\DiscountPromotionFormExpander;
 use Spryker\Zed\DiscountPromotion\Communication\Expander\DiscountPromotionFormExpanderInterface;
-use Spryker\Zed\DiscountPromotion\Communication\Form\Constraint\AbstractSkusExistConstraint;
+use Spryker\Zed\DiscountPromotion\Communication\Form\Constraint\DiscountPromotionValid;
 use Spryker\Zed\DiscountPromotion\Communication\Form\DiscountPromotionFormType;
 use Spryker\Zed\DiscountPromotion\Communication\Form\Transformer\AbstractSkusTransformer;
 use Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToLocaleFacadeInterface;
@@ -17,10 +18,12 @@ use Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToProductIn
 use Spryker\Zed\DiscountPromotion\Dependency\Facade\DiscountPromotionToTranslatorFacadeInterface;
 use Spryker\Zed\DiscountPromotion\DiscountPromotionDependencyProvider;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
+use Spryker\Zed\Kernel\Communication\BusinessFactoryResolverAwareTrait;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Validator\Constraint;
 
 /**
+ * @method \Spryker\Zed\DiscountPromotion\Business\DiscountPromotionBusinessFactory getBusinessFactory()
  * @method \Spryker\Zed\DiscountPromotion\DiscountPromotionConfig getConfig()
  * @method \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionEntityManagerInterface getEntityManager()
  * @method \Spryker\Zed\DiscountPromotion\Persistence\DiscountPromotionQueryContainerInterface getQueryContainer()
@@ -29,6 +32,8 @@ use Symfony\Component\Validator\Constraint;
  */
 class DiscountPromotionCommunicationFactory extends AbstractCommunicationFactory
 {
+    use BusinessFactoryResolverAwareTrait;
+
     /**
      * @deprecated Use the FQCN directly.
      *
@@ -47,17 +52,20 @@ class DiscountPromotionCommunicationFactory extends AbstractCommunicationFactory
         return new AbstractSkusTransformer();
     }
 
-    public function createAbstractSkusExistConstraint(): Constraint
-    {
-        return new AbstractSkusExistConstraint([
-            AbstractSkusExistConstraint::OPTION_PRODUCT_FACADE => $this->getProductFacade(),
-            AbstractSkusExistConstraint::OPTION_TRANSLATOR_FACADE => $this->getTranslatorFacade(),
-        ]);
-    }
-
     public function createDiscountPromotionFormExpander(): DiscountPromotionFormExpanderInterface
     {
         return new DiscountPromotionFormExpander($this->getLocaleFacade());
+    }
+
+    public function createDiscountPromotionValidConstraint(): Constraint
+    {
+        return new DiscountPromotionValid(
+            [
+                DiscountPromotionValid::OPTION_DISCOUNT_PROMOTION_VALIDATOR => $this->getBusinessFactory()->createDiscountPromotionValidator(),
+                DiscountPromotionValid::OPTION_TRANSLATOR_FACADE => $this->getTranslatorFacade(),
+            ],
+            [DiscountPromotionConfig::DISCOUNT_COLLECTOR_STRATEGY],
+        );
     }
 
     public function getProductFacade(): DiscountPromotionToProductInterface

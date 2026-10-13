@@ -1,0 +1,52 @@
+# Contributed to the /discounts request validation by the DiscountPromotion module. Mirrors its Back Office sub-form:
+#   abstract skus / quantity | NotBlank [when strategy promotion]; AbstractSkusExist | promotion.abstractSkus / promotion.quantity | When collectorStrategyType == 'promotion': NotBlank  (SKU existence is checked in the business layer: AbstractSkusDiscountPromotionValidatorRule)
+post:
+    promotion:
+        - When:
+              expression: "this.collectorStrategyType == 'promotion'"
+              constraints:
+                  - NotNull: ~
+                  - Collection:
+                        allowExtraFields: false
+                        fields:
+                            abstractSkus:
+                                [
+                                    { NotBlank: ~ },
+                                    { Type: { type: array } },
+                                    { All: { constraints: [{ Type: { type: string } }, { Length: { max: 255 } }] } },
+                                ]
+                            quantity: [{ NotBlank: ~ }, { Type: { type: integer } }]
+
+patch:
+    promotion:
+        - Optional:
+              {
+                  constraints:
+                      [
+                          {
+                              Collection:
+                                  {
+                                      allowExtraFields: false,
+                                      allowMissingFields: true,
+                                      fields:
+                                          {
+                                              abstractSkus:
+                                                  [
+                                                      { Type: { type: array } },
+                                                      {
+                                                          All:
+                                                              {
+                                                                  constraints:
+                                                                      [
+                                                                          { Type: { type: string } },
+                                                                          { Length: { max: 255 } },
+                                                                      ],
+                                                              },
+                                                      },
+                                                  ],
+                                              quantity: [{ Type: { type: integer } }],
+                                          },
+                                  },
+                          },
+                      ],
+              }

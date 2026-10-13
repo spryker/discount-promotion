@@ -5,3 +5,5 @@
 "Use a comma-separated list for multiple abstract SKUs","Use a comma-separated list for multiple abstract SKUs"
 "Unknown SKU(s): %non_existing_skus%","Unknown SKU(s): %non_existing_skus%"
 "Abstract SKUs","Abstract SKUs"
+"At least one abstract product SKU is required for a promotional discount.","At least one abstract product SKU is required for a promotional discount."
+"Maximum quantity must be at least %min%.","Maximum quantity must be at least %min%."

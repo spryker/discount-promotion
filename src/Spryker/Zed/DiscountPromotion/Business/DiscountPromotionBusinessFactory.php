@@ -24,6 +24,8 @@ use Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountProm
 use Spryker\Zed\DiscountPromotion\Business\DiscountPromotionCreator\DiscountPromotionCreatorInterface;
 use Spryker\Zed\DiscountPromotion\Business\DiscountPromotionUpdater\DiscountPromotionUpdater;
 use Spryker\Zed\DiscountPromotion\Business\DiscountPromotionUpdater\DiscountPromotionUpdaterInterface;
+use Spryker\Zed\DiscountPromotion\Business\Expander\DiscountConfiguratorCollectionExpander;
+use Spryker\Zed\DiscountPromotion\Business\Expander\DiscountConfiguratorCollectionExpanderInterface;
 use Spryker\Zed\DiscountPromotion\Business\Expander\DiscountPromotionQuoteExpander;
 use Spryker\Zed\DiscountPromotion\Business\Expander\DiscountPromotionQuoteExpanderInterface;
 use Spryker\Zed\DiscountPromotion\Business\Filter\DiscountPromotionItemFilter;
@@ -32,6 +34,11 @@ use Spryker\Zed\DiscountPromotion\Business\Model\DiscountCollectorStrategy\Promo
 use Spryker\Zed\DiscountPromotion\Business\Model\DiscountPromotionReader;
 use Spryker\Zed\DiscountPromotion\Business\PostUpdater\DiscountPromotionDiscountPostUpdater;
 use Spryker\Zed\DiscountPromotion\Business\PostUpdater\DiscountPromotionDiscountPostUpdaterInterface;
+use Spryker\Zed\DiscountPromotion\Business\Validator\DiscountPromotionValidator;
+use Spryker\Zed\DiscountPromotion\Business\Validator\DiscountPromotionValidatorInterface;
+use Spryker\Zed\DiscountPromotion\Business\Validator\Rule\DiscountPromotion\AbstractSkusDiscountPromotionValidatorRule;
+use Spryker\Zed\DiscountPromotion\Business\Validator\Rule\DiscountPromotion\DiscountPromotionValidatorRuleInterface;
+use Spryker\Zed\DiscountPromotion\Business\Validator\Rule\DiscountPromotion\QuantityDiscountPromotionValidatorRule;
 use Spryker\Zed\DiscountPromotion\Business\Writer\DiscountVoucherQuoteWriter;
 use Spryker\Zed\DiscountPromotion\Business\Writer\DiscountVoucherQuoteWriterInterface;
 use Spryker\Zed\DiscountPromotion\DiscountPromotionDependencyProvider;
@@ -67,6 +74,11 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
     public function createDiscountPromotionReader()
     {
         return new DiscountPromotionReader($this->getRepository());
+    }
+
+    public function createDiscountConfiguratorCollectionExpander(): DiscountConfiguratorCollectionExpanderInterface
+    {
+        return new DiscountConfiguratorCollectionExpander($this->getRepository());
     }
 
     public function createDiscountPromotionItemFilter(): DiscountPromotionItemFilterInterface
@@ -159,6 +171,32 @@ class DiscountPromotionBusinessFactory extends AbstractBusinessFactory
             $this->createDiscountPromotionCreator(),
             $this->createDiscountPromotionUpdater(),
         );
+    }
+
+    public function createDiscountPromotionValidator(): DiscountPromotionValidatorInterface
+    {
+        return new DiscountPromotionValidator($this->createDiscountPromotionValidatorRules());
+    }
+
+    /**
+     * @return list<\Spryker\Zed\DiscountPromotion\Business\Validator\Rule\DiscountPromotion\DiscountPromotionValidatorRuleInterface>
+     */
+    public function createDiscountPromotionValidatorRules(): array
+    {
+        return [
+            $this->createAbstractSkusDiscountPromotionValidatorRule(),
+            $this->createQuantityDiscountPromotionValidatorRule(),
+        ];
+    }
+
+    public function createAbstractSkusDiscountPromotionValidatorRule(): DiscountPromotionValidatorRuleInterface
+    {
+        return new AbstractSkusDiscountPromotionValidatorRule($this->getProductFacade());
+    }
+
+    public function createQuantityDiscountPromotionValidatorRule(): DiscountPromotionValidatorRuleInterface
+    {
+        return new QuantityDiscountPromotionValidatorRule();
     }
 
     /**

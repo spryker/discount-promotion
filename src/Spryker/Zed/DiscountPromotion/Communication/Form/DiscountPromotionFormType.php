@@ -41,6 +41,8 @@ class DiscountPromotionFormType extends AbstractDiscountExtensionSubFormType
      */
     protected const HELP_ABSTRACT_SKUS = 'Use a comma-separated list for multiple abstract SKUs';
 
+    protected const string OPTION_CONSTRAINTS = 'constraints';
+
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array<string, mixed> $options
@@ -64,6 +66,9 @@ class DiscountPromotionFormType extends AbstractDiscountExtensionSubFormType
 
         $resolver->setDefaults([
             static::OPTION_LOCALE => null,
+            static::OPTION_CONSTRAINTS => [
+                $this->getFactory()->createDiscountPromotionValidConstraint(),
+            ],
         ]);
     }
 
@@ -129,9 +134,6 @@ class DiscountPromotionFormType extends AbstractDiscountExtensionSubFormType
             FormattedNumberType::class,
             [
                 'label' => 'Maximum Quantity:',
-                'constraints' => [
-                    new NotBlank(['groups' => DiscountPromotionConfig::DISCOUNT_COLLECTOR_STRATEGY]),
-                ],
                 'locale' => $options[static::OPTION_LOCALE],
             ],
         );
@@ -151,10 +153,6 @@ class DiscountPromotionFormType extends AbstractDiscountExtensionSubFormType
             TextareaType::class,
             [
                 'label' => static::LABEL_ABSTRACT_SKUS,
-                'constraints' => [
-                    new NotBlank(['groups' => DiscountPromotionConfig::DISCOUNT_COLLECTOR_STRATEGY]),
-                    $this->getFactory()->createAbstractSkusExistConstraint(),
-                ],
                 'help' => static::HELP_ABSTRACT_SKUS,
             ],
         );

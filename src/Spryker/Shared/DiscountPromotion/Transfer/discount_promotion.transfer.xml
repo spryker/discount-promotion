@@ -93,6 +93,10 @@
         <property name="discountCalculator" type="DiscountCalculator"/>
     </transfer>
 
+    <transfer name="DiscountConfiguratorCollection" strict="true">
+        <property name="discountConfigurators" type="DiscountConfigurator[]" singular="discountConfigurator"/>
+    </transfer>
+
     <transfer name="CollectedDiscount">
         <property name="discount" type="Discount"/>
         <property name="discountableItems" type="DiscountableItem[]" singular="discountableItems"/>
@@ -160,5 +164,24 @@
 
     <transfer name="AclEntityMetadataCollection">
         <property name="collection" type="array" singular="aclEntityMetadata" associative="true"/>
+    </transfer>
+
+    <transfer name="DiscountConfigurationOptions" strict="true">
+        <property name="collectorStrategyTypes" type="DiscountCollectorStrategyOption[]" singular="collectorStrategyType"/>
+    </transfer>
+
+    <transfer name="DiscountCollectorStrategyOption" strict="true">
+        <property name="key" type="string"/>
+        <property name="label" type="string"/>
+    </transfer>
+
+    <transfer name="Error">
+        <property name="message" type="string"/>
+        <property name="entityIdentifier" type="string"/>
+        <property name="parameters" type="array" singular="parameter"/>
+    </transfer>
+
+    <transfer name="ErrorCollection" strict="true">
+        <property name="errors" type="Error[]" singular="error"/>
     </transfer>
 </transfers>

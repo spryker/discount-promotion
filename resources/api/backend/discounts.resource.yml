@@ -1,0 +1,29 @@
+resource:
+    name: Discounts
+    shortName: discounts
+    description: Back Office discount management (cart rules and voucher discounts)
+
+    # Contributed to the /discounts resource by the DiscountPromotion module (no separate endpoint). The property exists only
+    # when this module is installed and is used together with collectorStrategyType = promotion.
+    properties:
+        promotion:
+            type: object
+            objectName: DiscountPromotion
+            writable: true
+            description: 'Promotion configuration, part of the discount. Required when collectorStrategyType is promotion, ignored otherwise: the promotional products offered to the customer when the decision rules match.'
+            openapiContext: { example: { abstractSkus: ['001', '002'], quantity: 1 } }
+            properties:
+                abstractSkus:
+                    {
+                        type: array,
+                        nullable: true,
+                        items: { type: string },
+                        description: 'Abstract product SKUs offered as promotional items. Every SKU must exist (code 5730 otherwise). On PATCH: omit the property to keep the stored SKUs, send an empty array to clear them, send a list to replace them.',
+                        openapiContext: { example: ['001', '002'] },
+                    }
+                quantity:
+                    {
+                        type: integer,
+                        description: 'Maximum quantity of the promotional product the customer may add.',
+                        openapiContext: { example: 1 },
+                    }
